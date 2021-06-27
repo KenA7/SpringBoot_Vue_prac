@@ -1,0 +1,26 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.2.8:3306/vue_admin_system
+    username: root
+    password: 123456
+  security:
+    user:
+      name: user
+      password: 1234
+  redis:
+    host: 192.168.2.8
+    port: 6379
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+
+
+kend:
+  jwt:
+    header: Authorization
+    expire: 604800
+    secret: asjj2j4msj2j49sk2j4bsh4msj1j3hjx

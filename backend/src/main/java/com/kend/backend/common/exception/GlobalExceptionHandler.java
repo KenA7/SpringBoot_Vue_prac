@@ -1,0 +1,30 @@
+package com.kend.backend.common.exception;
+
+
+import com.kend.backend.common.lang.Result;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+
+// 捕获controller 异常
+@Slf4j
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+    // 设置状态码
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(value= RuntimeException.class)
+    public Result handler( RuntimeException e){
+        return Result.fail(e.getMessage());
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(value = IllegalAccessException.class)
+    public Result handler(IllegalAccessException e){
+        log.error("Assert 异常: --------- {}",e.getMessage());
+        return Result.fail(e.getMessage());
+    }
+}
