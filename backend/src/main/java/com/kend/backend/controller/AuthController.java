@@ -8,7 +8,6 @@ import com.kend.backend.common.lang.Result;
 import com.kend.backend.entity.SysUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.imageio.ImageIO;
@@ -33,9 +32,9 @@ public class AuthController extends BaseController{
         // 生成验证码数据
         String captchaCode = producer.createText();
 
-        // 测试代码
-        token = "111";
-        captchaCode = "222";
+//        // 测试代码
+//        token = "111";
+//        captchaCode = "222";
 
 
         /// 将验证码转换成图片
@@ -63,8 +62,6 @@ public class AuthController extends BaseController{
     @GetMapping("/sys/userInfo")
     public Result userInfo(Principal principal){
        SysUser user =  sysUserService.getUserByUsername(principal.getName());
-
-
        return Result.succ(MapUtil
                             .builder()
                             .put("id",user.getId())

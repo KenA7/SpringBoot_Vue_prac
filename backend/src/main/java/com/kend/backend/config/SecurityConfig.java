@@ -75,8 +75,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
          // 登出配置
         .and()
-        .logout()
-        .logoutSuccessHandler(jwtLogoutSuccessHandler)
+            .logout()
+            .logoutSuccessHandler(jwtLogoutSuccessHandler)
 
         //禁用session
         .and()

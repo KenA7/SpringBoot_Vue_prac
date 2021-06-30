@@ -18,7 +18,7 @@
         </div>
       </el-form-item>
       <el-checkbox v-model="check">Remember password</el-checkbox>
-      <el-button @click="submitForm('loginForm')" type="primary">Login</el-button>
+      <el-button @click="submitForm('loginForm')" type="primary" class="login-button">Login</el-button>
       </div>
     </el-form>
   </div>
@@ -33,7 +33,7 @@ import qs from 'qs'
           username: 'ken',
           password: '1234',
           token: '',
-          captchaCode:'222'
+          captchaCode:'222',
         },
         loading: false,
         check: false,
@@ -65,7 +65,7 @@ import qs from 'qs'
         this.$axios.get('/captcha').then((res)=>{
             this.loginForm.token = res.data.data.token
             this.captchaImg = res.data.data.base64Image
-            // this.loginForm.captchaCode = ''
+            // this.loginForm.captchaCode = ' '
         })
       }
     },
@@ -120,7 +120,7 @@ import qs from 'qs'
   height: 40px;
   float: right;
 }
-.el-button{
+.login-button{
   width: 100%;
 }
 .el-checkbox{

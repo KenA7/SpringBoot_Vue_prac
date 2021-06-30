@@ -17,7 +17,6 @@ export default new Vuex.Store({
 
   resetState :(state)=>{
     state.token =''
-
   },
   actions: {
   },

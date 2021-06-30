@@ -80,7 +80,6 @@
 }
 .el-main{
   padding: 0;
-  text-align: center;
 }
 .el-header {
   background-color: #17B3A3;

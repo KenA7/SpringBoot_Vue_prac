@@ -1,5 +1,6 @@
 package com.kend.backend.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.kend.backend.common.dto.SysMenuDto;
 import com.kend.backend.entity.SysMenu;
 import com.kend.backend.entity.SysUser;
@@ -45,6 +46,13 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         // 实体转dto
        return convert(menuTree);
 
+    }
+
+    @Override
+    public List<SysMenu> tree() {
+        List<SysMenu> sysMenus = this.list(new QueryWrapper<SysMenu>().orderByAsc("orderNum"));
+
+        return buildTreeMenu(sysMenus);
     }
 
     private List<SysMenuDto> convert(List<SysMenu> menuTree) {
